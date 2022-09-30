@@ -6,17 +6,34 @@
   <% if (user) { %>
     <h2>Add a Bag!</h2>
     <form action="/bags" method="POST">
-      <label>
-        Owner of Bag: 
-        <input type="text" name="name" autocomplete="off">
-      </label>
-      <button type="submit">Add Bag</button>
+      <div>
+        <label>
+          Unique Bag Name: 
+          <input type="text" name="name" autocomplete="off">
+        </label>
+      </div>
+      <div>
+        <label>
+          Years of Golfing Experience:
+          <input type="number" name="year">
+        </label>
+        <button type="submit">Add Bag</button>
+      </div>  
     </form>
   <% } %>
   <h2>All Bags</h2>
 	<ul>
   <% bags.forEach(bag => { %>
-    <li> <%= bag.name %>'s Bag </li>
+    <li> <%= bag.name %> whose owner <%= bag.owner.name %> 
+      <% if(bag.year > 0) { %>
+        has been golfing for <%= bag.year %> years 
+      <% } else { %> 
+        has no experience in golf but wants to learn
+      <% } %>  
+      </li>
+    <form action="/bags/<%= bag._id %>">
+    <button>VIEW BAG</button>
+    </form>
   <% }) %>
   </ul>
 </section>

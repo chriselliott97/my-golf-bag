@@ -26,7 +26,23 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Bag.findById(req.params.id)
+  .populate('owner')
+  .then( bag => {
+    res.render('bags/show', {
+      bag,
+      title: 'Bag Details'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/bags')
+  })
+}
+
 export {
   index,
-  create
+  create,
+  show
 }

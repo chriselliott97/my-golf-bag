@@ -4,12 +4,14 @@ const Schema = mongoose.Schema
 
 const bagSchema = new Schema({
   name: String,
+  year: Number,
   driver: [{type: Schema.Types.ObjectId, ref: 'Driver'}],
   wood: [{type: Schema.Types.ObjectId, ref: 'Wood'}],
   hybrid: [{type: Schema.Types.ObjectId, ref: 'Hybrid'}],
   iron: [{type: Schema.Types.ObjectId, ref: 'Iron'}],
   wedge: [{type: Schema.Types.ObjectId, ref: 'Wedge'}],
   putter: [{type: Schema.Types.ObjectId, ref: 'Putter'}],
+  owner: { type: Schema.Types.ObjectId, ref: "Profile" }
 }, {
   timestamps: true
 })

@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bags/show.css" />
+<%- include('../partials/nav') %>
+
+<section>
+	<p> <%= bag.owner.name %>'s Golf Bag</p>
+  <h1><%= bag.name %> ⛳️</h1>
+  <section>
+    <div>Driver:</div>
+    <div>Woods:</div>
+    <div>Hybrids:</div>
+    <div>Irons:</div>
+    <div>Wedges:</div>
+    <div>Putter:</div>
+  </section>
+</section>
+
+<%- include('../partials/footer') %>
