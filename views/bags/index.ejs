@@ -1,0 +1,14 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Golf Bags</h1>
+  <h2>All Bags</h2>
+	<ul>
+  <% bags.forEach(bag => { %>
+    <li>🌮 <%= bag.name %> is <%= bag.tasty ? 'tasty' : 'not tasty' %></li>
+  <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
