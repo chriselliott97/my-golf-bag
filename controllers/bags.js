@@ -14,6 +14,19 @@ function index(req, res) {
   })
 }
 
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  Bag.create(req.body)
+  .then(bag => {
+    res.redirect('/bags')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/bags')
+  })
+}
+
 export {
-  index
+  index,
+  create
 }

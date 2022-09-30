@@ -3,10 +3,20 @@
 
 <section>
   <h1>Golf Bags</h1>
+  <% if (user) { %>
+    <h2>Add a Bag!</h2>
+    <form action="/bags" method="POST">
+      <label>
+        Owner of Bag: 
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <button type="submit">Add Bag</button>
+    </form>
+  <% } %>
   <h2>All Bags</h2>
 	<ul>
   <% bags.forEach(bag => { %>
-    <li>🌮 <%= bag.name %> is <%= bag.tasty ? 'tasty' : 'not tasty' %></li>
+    <li> <%= bag.name %>'s Bag </li>
   <% }) %>
   </ul>
 </section>
