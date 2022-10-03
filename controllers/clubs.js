@@ -4,7 +4,7 @@ function index(req, res) {
   Club.find({})
   .then(clubs => {
     res.render('clubs/index', {
-      title: 'Clubs',
+      title: 'Add Clubs',
       clubs: clubs
     })
   })
@@ -14,6 +14,29 @@ function index(req, res) {
   })
 }
 
+function create(req, res) {
+  Club.create(req.body)
+  .then(club => {
+    res.redirect(`clubs/${club._id}`)
+  })
+  .catch(err => {
+    res.redirect('/clubs/new')
+  })
+}
+
+function deleteClub(req, res) {
+  Club.findByIdAndDelete(req.params.id)
+  .then(club => {
+    res.redirect('/clubs')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/clubs')
+  })
+}
+
 export {
-  index
+  index,
+  create,
+  deleteClub as delete
 }

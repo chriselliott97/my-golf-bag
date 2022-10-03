@@ -5,6 +5,9 @@ const router = Router()
 
 router.get('/', clubsCtrl.index)
 
+router.post('/', clubsCtrl.create)
+
+router.delete('/:id', clubsCtrl.delete)
 export {
   router
 }

@@ -3,8 +3,9 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const clubSchema = new Schema({
-  type: String,
+  name: String,
   brand: String,
+  type: String,
   price: {type: Number, min: 0},
 }, {
   timestamps: true

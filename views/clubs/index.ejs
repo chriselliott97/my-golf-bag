@@ -1,6 +1,53 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>Drivers</h1>
+<main>
+  <h1><%= title %></h1>
+  <form id="new-form" action="/clubs" method="POST">
+    <label for="name-input">Club Type:</label>
+    <select name="name" id="name-select">
+      <option value="Driver">Driver</option>
+      <option value="Wood">Wood</option>
+      <option value="Hybrid">Hybrid</option>
+      <option value="Iron">Iron</option>
+      <option value="Wedge">Wedge</option>
+      <option value="Putter">Putter</option>
+    </select>
+    <label for="brand-input">Brand:</label>
+    <input type="text" name="brand" id="brand-input" placeholder="Ex: Calloway">
+    <label for="type-input">Type:</label>
+    <input type="text" name="type" id="type-input" placeholder="Ex: Big Bertha B21">
+    <label for="price-input">Price:</label>
+    <input type="number" name="price" id="price-input">
+    <button type="submit">Add Club</button>
+  </form>
+  <h1>Club List</h1>
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Club Type</th>
+        <th>Brand</th>
+        <th>Type</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% clubs.forEach((club) => { %> 
+        <tr>
+          <td><%= club.name %></td>
+          <td><%= club.brand %></td>
+          <td><%= club.type %></td>
+          <td>$<%= club.price %></td>
+          
+        <td>
+          <form action="/clubs/<%= club._id %>?_method=DELETE" method="POST">
+            <button>X</button>
+          </form>
+        </td>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</main>
 
 <%- include('../partials/footer') %>
