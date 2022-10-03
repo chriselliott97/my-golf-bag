@@ -1,4 +1,5 @@
 import { Bag } from '../models/bag.js'
+import { Club } from '../models/club.js'
 
 function index(req, res) {
   Bag.find({})
@@ -28,19 +29,19 @@ function create(req, res) {
 
 function show(req, res) {
   Bag.findById(req.params.id)
+  .populate('clubs')
   .populate('owner')
   .then( bag => {
-    res.render('bags/show', {
-      bag,
-      title: 'Bag Details'
+    Club.find({_id: {$nin: bag.clubs}})
+    .then(clubs => {
+      res.render('bags/show', {
+        bag,
+        title: 'Bag Details',
+        clubs: clubs
+      })
     })
   })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/bags')
-  })
 }
-
 export {
   index,
   create,

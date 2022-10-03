@@ -5,6 +5,18 @@
 <section>
 	<p> <%= bag.owner.name %>'s Golf Bag</p>
   <h1><%= bag.name %> ⛳️</h1>
+  <h2>Add Clubs to Bag</h2>
+
+  
+
+  <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
+    <select name="clubId">
+      <% clubs.forEach(club => { %>
+        <option value="<%= club._id %>"><%= club.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add club</button>
+  </form>
   <section>
     <div>Driver:</div>
     <div>Woods:</div>
