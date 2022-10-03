@@ -9,7 +9,8 @@
   <ul>
     <% bag.clubs.forEach(club => { %>
       <% console.log("club name ", club.name) %>
-      <li><%= club.name %>, <%= club.type %></li>
+      <li><%= club.name %>, <%= club.type %>
+      </li>
     <% }) %>   
   </ul>
   <% if (bag.owner.equals(user?.profile._id)) { %>

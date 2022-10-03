@@ -6,6 +6,9 @@
   <h2><%= club.brand %></h2>
   <h2><%= club.type %></h2>
   <h2>$<%= club.price %></h2>
+  <a href="/clubs/<%= club._id %>/edit">
+    <button>Edit Club</button>
+  </a>
   <section>
     <h2>Reviews</h2>
   <form 
@@ -32,18 +35,18 @@
   </form>
 
   <% if (club.reviews.length) { %>
-    <table>
+    <table class="table table-success table-striped">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Review</th>
-          <th>Rating</th>
+          <th scope="col">Date</th>
+          <th scope="col">Review</th>
+          <th scope="col">Rating</th>
         </tr>
       </thead>
       <tbody>
         <% club.reviews.forEach(review => { %>
           <tr>
-            <td><%= review.createdAt.toLocaleDateString() %></td>
+            <th scope="row"><%= review.createdAt.toLocaleDateString() %></td>
             <td><%= review.content %></td>
             <td><%= review.rating %></td>
           </tr>

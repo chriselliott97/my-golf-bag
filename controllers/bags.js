@@ -54,9 +54,11 @@ function addToClubs(req, res) {
     })
   })
 }
+
+
 export {
   index,
   create,
   show,
-  addToClubs
+  addToClubs,
 }

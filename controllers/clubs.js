@@ -51,6 +51,35 @@ function deleteClub(req, res) {
   })
 }
 
+function edit(req, res) {
+  Club.findById(req.params.id)
+  .then(club => {
+    res.render("clubs/edit", {
+      club,
+      title: "Edit club"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function update(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Club.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  .then(club => {
+    console.log(club);
+    res.redirect(`/clubs/${club._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 function createReview(req, res) {
   Club.findById(req.params.id)
   .then(club => {
@@ -75,5 +104,7 @@ export {
   create,
   deleteClub as delete,
   show,
-  createReview
+  createReview,
+  update,
+  edit
 }

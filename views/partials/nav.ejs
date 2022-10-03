@@ -3,15 +3,13 @@
   <% } %>
 </head>
 <body>
-  <nav>
-    <a href="/bags">BAGS</a>
-    <a href="/clubs">CLUBS</a>
-    <% if (user) { %>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
-    <% } else { %>
-      <div 
+  
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <% if (user) { %>
+      <a class="navbar-brand" href="/auth/logout">Logout</a>
+      <% } else { %>
+        <div 
         id="g_id_onload"
         data-client_id="<%= googleClientID %>"
         data-login_uri="/auth/google"
@@ -27,4 +25,17 @@
         data-logo_alignment="left"
       ></div>
     <% } %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/bags">Bags</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/clubs">Clubs</a>
+        </ul>
+      </div>
+    </div>
   </nav>
