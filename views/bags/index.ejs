@@ -22,20 +22,21 @@
     </form>
   <% } %>
   <h2>All Bags</h2>
-	<ul>
-  <% bags.forEach(bag => { %>
-    <li> <%= bag.name %> whose owner <%= bag.owner.name %> 
-      <% if(bag.year > 0) { %>
-        has been golfing for <%= bag.year %> years 
-      <% } else { %> 
-        has no experience in golf but wants to learn
-      <% } %>  
-      </li>
-    <form action="/bags/<%= bag._id %>">
-    <button>VIEW BAG</button>
-    </form>
-  <% }) %>
-  </ul>
+	<div class="list-group">
+    <% bags.forEach(bag => { %>
+    <a href="/bags/<%= bag._id %>" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h3 class="mb-1"> <%= bag.name %></h3>
+        <h5>Owner of bag
+          <% if(bag.year > 0) { %>
+            has been golfing for <%= bag.year %> years 
+          <% } else { %> 
+            has no experience in golf but wants to learn
+          <% } %>  
+        </h5>
+      </div>
+    <% }) %>
+  </div>
 </section>
 
 <%- include('../partials/footer') %>

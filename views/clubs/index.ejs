@@ -3,7 +3,7 @@
 
 <main>
   <h1>Club List</h1>
-  <table id="list">
+  <table id="list" class="table table-success table-striped">
     <thead>
       <tr>
         <th scope="col">Club Type</th>
@@ -15,7 +15,7 @@
     <tbody>
       <% clubs.forEach((club) => { %> 
         <tr>
-          <td><%= club.name %></td>
+          <th scope="row"><%= club.name %></td>
           <td><%= club.brand %></td>
           <td><%= club.type %></td>
           <td>$<%= club.price %></td>
