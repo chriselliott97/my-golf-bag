@@ -25,15 +25,13 @@
   <% } %>    
   <% if (user) { %> 
     <h2>Reviews:</h2>
-    <div>
-      <div class="club-review">Driver:</div>
-      <div class="club-review">Woods:</div>
-      <div class="club-review">Hybrids:</div>
-      <div class="club-review">Irons:</div>
-      <div class="club-review">Wedges:</div>
-      <div class="club-review">Putter:</div>
-    </div>
-  <% } %> 
+    <% bag.clubs.forEach(club => { %>
+      <% club.reviews.forEach(review => { %>
+        <li><%= club.name %>:
+        <%= review.content %> Rating: <%= review.rating %></li>
+    <% }) %>
+  <% }) %> 
+  <% } %>
 </section>
 
 <%- include('../partials/footer') %>
