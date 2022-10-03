@@ -51,9 +51,29 @@ function deleteClub(req, res) {
   })
 }
 
+function createReview(req, res) {
+  Club.findById(req.params.id)
+  .then(club => {
+    club.reviews.push(req.body)
+    club.save()
+    .then(() => {
+      res.redirect(`/clubs/${club._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   create,
   deleteClub as delete,
-  show
+  show,
+  createReview
 }

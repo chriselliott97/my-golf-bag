@@ -9,7 +9,10 @@ router.get('/:id', clubsCtrl.show)
 
 router.post('/', clubsCtrl.create)
 
+router.post('/:id/reviews', clubsCtrl.createReview)
+
 router.delete('/:id', clubsCtrl.delete)
+
 export {
   router
 }
