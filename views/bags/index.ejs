@@ -1,23 +1,22 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bags/index.css"/>
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Golf Bags</h1>
+  <h1 class="bags-title">Golf Bags</h1>
   <% if (user) { %>
     <h2>Add a Bag!</h2>
     <form action="/bags" method="POST">
-      <div>
-        <label>
-          Unique Bag Name: 
-          <input type="text" name="name" autocomplete="off">
-        </label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Unique Bag Name</span>
+        <input name="name" type="text"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Years of Golf Experience</span>
+        <input name="year" type="number"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
       <div>
-        <label>
-          Years of Golfing Experience:
-          <input type="number" name="year">
-        </label>
-        <button type="submit">Add Bag</button>
+        <button class="btn btn-primary"type="submit">Add Bag</button>
       </div>  
     </form>
   <% } %>
