@@ -41,9 +41,7 @@
         </tr>
       </thead>
       <tbody>
-        <% let total = 0 %>
-        <% club.reviews.forEach(function(review) { %>
-          <% total += review.rating %>
+        <% club.reviews.forEach(review => { %>
           <tr>
             <td><%= review.createdAt.toLocaleDateString() %></td>
             <td><%= review.content %></td>

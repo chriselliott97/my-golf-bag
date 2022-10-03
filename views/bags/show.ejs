@@ -9,7 +9,7 @@
   <ul>
     <% bag.clubs.forEach(club => { %>
       <% console.log("club name ", club.name) %>
-      <li><%= club.name %></li>
+      <li><%= club.name %>, <%= club.type %></li>
     <% }) %>   
   </ul>
   <% if (bag.owner.equals(user?.profile._id)) { %>
@@ -22,6 +22,11 @@
         </select>
         <button type="submit">Add club</button>
       </form>
+      <div class="club-redirect">
+        <form action="/clubs">
+          <input type="submit" value="New Club">
+        </form>
+      </div>  
   <% } %>    
   <% if (user) { %> 
     <h2>Reviews:</h2>
