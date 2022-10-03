@@ -10,17 +10,18 @@ function index(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/movies')
+    res.redirect('/clubs')
   })
 }
 
 function create(req, res) {
   Club.create(req.body)
   .then(club => {
-    res.redirect(`clubs/${club._id}`)
+    res.redirect(`clubs`)
   })
   .catch(err => {
-    res.redirect('/clubs/new')
+    console.log(err)
+    res.redirect('/clubs')
   })
 }
 

@@ -42,8 +42,21 @@ function show(req, res) {
     })
   })
 }
+
+function addToClubs(req, res) {
+  Bag.findById(req.params.id)
+  .then(bag => {
+    console.log("THE club", req.body.clubId)
+    bag.clubs.push(req.body.clubId)
+    bag.save()
+    .then(() => {
+      res.redirect(`/bags/${bag._id}`)
+    })
+  })
+}
 export {
   index,
   create,
-  show
+  show,
+  addToClubs
 }
