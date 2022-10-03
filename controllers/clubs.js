@@ -25,6 +25,21 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Club.findById(req.params.id)
+  .then(club => {
+    console.log(club);
+    res.render('clubs/show', {
+      club,
+      title: "Club show"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/clubs')
+  })
+}
+
 function deleteClub(req, res) {
   Club.findByIdAndDelete(req.params.id)
   .then(club => {
@@ -39,5 +54,6 @@ function deleteClub(req, res) {
 export {
   index,
   create,
-  deleteClub as delete
+  deleteClub as delete,
+  show
 }

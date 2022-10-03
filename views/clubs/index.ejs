@@ -3,6 +3,7 @@
 
 <main>
   <h1><%= title %></h1>
+  <% if (user) { %>
   <form id="new-form" action="/clubs" method="POST">
     <label for="name-input">Club Type:</label>
     <select name="name" id="name-select">
@@ -21,6 +22,7 @@
     <input type="number" name="price" id="price-input">
     <button type="submit">Add Club</button>
   </form>
+  <% } %>
   <h1>Club List</h1>
   <table id="list">
     <thead>
@@ -38,12 +40,18 @@
           <td><%= club.brand %></td>
           <td><%= club.type %></td>
           <td>$<%= club.price %></td>
-          
-        <td>
-          <form action="/clubs/<%= club._id %>?_method=DELETE" method="POST">
-            <button>X</button>
-          </form>
-        </td>
+          <% if (user) { %>
+          <td>
+            <form action="/clubs/<%= club._id %>">
+              <button>VIEW CLUB</button>
+            </form>
+          </td>
+          <td>
+            <form action="/clubs/<%= club._id %>?_method=DELETE" method="POST">
+              <button>X</button>
+            </form>
+          </td>
+          <% } %>
         </tr>
       <% }) %> 
     </tbody>

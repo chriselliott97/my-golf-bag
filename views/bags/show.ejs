@@ -6,32 +6,34 @@
 	<p> <%= bag.owner.name %>'s Golf Bag</p>
   <h1><%= bag.name %> ⛳️</h1>
   <h2>Clubs:</h2>
-    <ul>
-      <% bag.clubs.forEach(club => { %>
-        <% console.log("club name ", club.name) %>
-        <li><%= club.name %></li>
-      <% }) %>   
-    </ul>
-  <h2>Add Clubs to Bag</h2>
-
-
-  <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
-    <select name="clubId">
-      <% clubs.forEach(club => { %>
-        <option value="<%= club._id %>"><%= club.name %>, <%= club.type %> </option>
-      <% }) %>
-    </select>
-    <button type="submit">Add club</button>
-  </form>
-  <h2>Reviews:</h2>
-  <div>
-    <div class="club-review">Driver:</div>
-    <div class="club-review">Woods:</div>
-    <div class="club-review">Hybrids:</div>
-    <div class="club-review">Irons:</div>
-    <div class="club-review">Wedges:</div>
-    <div class="club-review">Putter:</div>
-  </div>
+  <ul>
+    <% bag.clubs.forEach(club => { %>
+      <% console.log("club name ", club.name) %>
+      <li><%= club.name %></li>
+    <% }) %>   
+  </ul>
+  <% if (bag.owner.equals(user?.profile._id)) { %>
+    <h2>Add Clubs to Bag</h2>
+    <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
+      <select name="clubId">
+        <% clubs.forEach(club => { %>
+          <option value="<%= club._id %>"><%= club.name %>, <%= club.type %> </option>
+          <% }) %>
+        </select>
+        <button type="submit">Add club</button>
+      </form>
+  <% } %>    
+  <% if (user) { %> 
+    <h2>Reviews:</h2>
+    <div>
+      <div class="club-review">Driver:</div>
+      <div class="club-review">Woods:</div>
+      <div class="club-review">Hybrids:</div>
+      <div class="club-review">Irons:</div>
+      <div class="club-review">Wedges:</div>
+      <div class="club-review">Putter:</div>
+    </div>
+  <% } %> 
 </section>
 
 <%- include('../partials/footer') %>
