@@ -28,7 +28,6 @@ function create(req, res) {
 function show(req, res) {
   Club.findById(req.params.id)
   .then(club => {
-    console.log(club);
     res.render('clubs/show', {
       club,
       title: "Club show"
@@ -71,7 +70,6 @@ function update(req, res) {
   }
   Club.findByIdAndUpdate(req.params.id, req.body, { new: true })
   .then(club => {
-    console.log(club);
     res.redirect(`/clubs/${club._id}`)
   })
   .catch(err => {

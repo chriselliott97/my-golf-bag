@@ -31,7 +31,10 @@ nav {
   padding: 50px;
   min-height: 60px;
 }
-
+.nav-item {
+  margin: 0 30px;
+  font-size: 30px;
+}
 main {
   display: flex;
   align-items: center;
