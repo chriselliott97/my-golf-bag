@@ -4,27 +4,9 @@
 </head>
 <body>
   
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar">
     <div class="container-fluid">
-      <% if (user) { %>
-      <a class="navbar-brand" href="/auth/logout">Logout</a>
-      <% } else { %>
-        <div 
-        id="g_id_onload"
-        data-client_id="<%= googleClientID %>"
-        data-login_uri="/auth/google"
-        data-auto_prompt="false"
-      ></div>
-      <div 
-        class="g_id_signin right"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left"
-      ></div>
-    <% } %>
+      <h1>MY GOLF BAGS</h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,7 +17,26 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/clubs">Clubs</a>
-        </ul>
+          </ul>
+          <% if (user) { %>
+          <a class="navbar-brand" href="/auth/logout">Logout</a>
+          <% } else { %>
+            <div 
+            id="g_id_onload"
+            data-client_id="<%= googleClientID %>"
+            data-login_uri="/auth/google"
+            data-auto_prompt="false"
+          ></div>
+          <div 
+            class="g_id_signin right"
+            data-type="standard"
+            data-size="large"
+            data-theme="outline"
+            data-text="sign_in_with"
+            data-shape="rectangular"
+            data-logo_alignment="left"
+          ></div>
+        <% } %>
       </div>
     </div>
   </nav>

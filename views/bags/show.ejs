@@ -7,7 +7,8 @@
     <h1><%= bag.name %> ⛳️</h1>
     <p><%= bag.owner.name %>'s Golf Bag who has been golfing for <%= bag.year %> years</p>
   </div>
-  <div class="clubs-card">
+  <div class="clubs-new">
+  <div id="clubs-card">
     <h2>Clubs:</h2>
     <div class="club-des">
       <% bag.clubs.forEach(club => { %>
@@ -16,8 +17,27 @@
         <% }) %>   
     </div>
   </div>
-  <div class="price-total">
-    <div class="bag-cost">
+  <div id="add-clubs">
+    <% if (bag.owner.equals(user?.profile._id)) { %>
+      <h2>Add Clubs to Bag:</h2>
+      <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
+        <select class="form-select" aria-label="Default select example" name="clubId">
+          <% clubs.forEach(club => { %>
+          <option value="<%= club._id %>"><%= club.name %>, <%= club.type %>, $<%= club.  price %></option>
+        <% }) %>
+      </select>
+      <button class="btn btn-primary" type="submit">Add club</button>
+    </form>
+      <div class="club-redirect">
+        <form action="/clubs">
+          <button type="submit" class="btn btn-outline-dark">New Club</button>
+        </form>
+      </div>  
+    <% } %> 
+  </div>
+  </div>
+  <div class="extras">
+    <div id="bag-cost">
       <h2>Bag Cost:</h2>
       <% let total = 0 %>
       <% bag.clubs.forEach(club => { %> 
@@ -25,9 +45,8 @@
       <% }) %> 
       $<%= total %> 
     </div>
-  </div>
   <% if (user) { %> 
-    <div>
+    <div id="rating">
       <h2>Rating:</h2>
       <% let sum = 0 %>
       <% bag.clubs.forEach(club => { %>
@@ -46,7 +65,8 @@
       <% } else if(sum === 0) {%> 
         <h5 class="bad">Bad</h5>
       <% } %> 
-      </div>
+    </div>
+  </div>    
       <h2>Reviews:</h2>
       <% bag.clubs.forEach(club => { %>
         <% club.reviews.forEach(review => { %>
@@ -57,22 +77,7 @@
         <% }) %>
       <% }) %> 
     <% } %>
-    <% if (bag.owner.equals(user?.profile._id)) { %>
-      <h2>Add Clubs to Bag</h2>
-      <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
-        <select class="form-select" aria-label="Default select example" name="clubId">
-          <% clubs.forEach(club => { %>
-          <option value="<%= club._id %>"><%= club.name %>, <%= club.type %>, $<%= club.price %></option>
-        <% }) %>
-      </select>
-      <button class="btn btn-primary" type="submit">Add club</button>
-    </form>
-      <div class="club-redirect">
-        <form action="/clubs">
-          <button type="submit" class="btn btn-outline-dark">New Club</button>
-        </form>
-      </div>  
-  <% } %> 
+    
 
 </section>
 

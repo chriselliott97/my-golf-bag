@@ -2,12 +2,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   margin: 0;
 }
 
+.bag-show > .bag-card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
 
+.bag-card > h1 {
+  font-size: 70px;
+}
 .great {
   color: rgb(83, 170, 83);
 }
@@ -26,4 +35,44 @@
 
 .bad {
   color: darkred;
+}
+
+.inline {
+  display:flex;
+  flex-direction: row;
+}
+
+#clubs-card {
+  margin: 40px;
+}
+#add-clubs {
+  margin: 40px;
+}
+
+@media only screen and (min-width: 786px){
+  #clubs-card{ 
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+  }
+  
+  #add-clubs {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+  }
+  
+  .clubs-new {
+    display: flex;
+    flex-direction:row;
+  }
+
+  .extras {
+    display: flex;
+    flex-direction:row;
+  }
+
+  #bag-cost {
+    margin: 0 50px 50px 50px;
+  }
 }
