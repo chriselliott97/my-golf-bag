@@ -2,42 +2,56 @@
 <link rel="stylesheet" href="/stylesheets/bags/show.css"/>
 <%- include('../partials/nav') %>
 
-<section>
-	<p> <%= bag.owner.name %>'s Golf Bag</p>
-  <h1><%= bag.name %> ⛳️</h1>
-  <h2>Clubs:</h2>
-  <ul>
-    <% bag.clubs.forEach(club => { %>
-      <% console.log("club name ", club.name) %>
-      <li><%= club.name %>, <%= club.type %>
-      </li>
-    <% }) %>   
-  </ul>
-  <% if (bag.owner.equals(user?.profile._id)) { %>
-    <h2>Add Clubs to Bag</h2>
-    <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
-      <select name="clubId">
-        <% clubs.forEach(club => { %>
-          <option value="<%= club._id %>"><%= club.name %>, <%= club.type %> </option>
-          <% }) %>
-        </select>
-        <button type="submit">Add club</button>
-      </form>
+<section class="bag-show">
+  <div class="bag-card"> 
+    <h1><%= bag.name %> ⛳️</h1>
+    <p><%= bag.owner.name %>'s Golf Bag who has been golfing for <%= bag.year %> years</p>
+  </div>
+  <div class="clubs-card">
+    <h2>Clubs:</h2>
+    <div class="club-des">
+      <% bag.clubs.forEach(club => { %>
+        <% console.log("club name ", club.name) %>
+        <li><a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %> </li>
+        <% }) %>   
+    </div>
+  </div>
+  <div class="price-total">
+    <div class="bag-cost">
+      <h2>Bag Cost:</h2>
+      <% let total = 0 %>
+      <% bag.clubs.forEach(club => { %> 
+        <% total += club.price %> 
+      <% }) %> 
+      $<%= total %> 
+    </div>
+  </div>
+    <% if (user) { %> 
+      <h2>Reviews:</h2>
+      <% bag.clubs.forEach(club => { %>
+        <% club.reviews.forEach(review => { %>
+          <div class="club-name"><%= club.name %>:
+            <%= review.content %> Rating: <%= review.rating %></div>
+        <% }) %>
+      <% }) %> 
+    <% } %>
+    <% if (bag.owner.equals(user?.profile._id)) { %>
+      <h2>Add Clubs to Bag</h2>
+      <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
+        <select class="form-select" aria-label="Default select example" name="clubId">
+          <% clubs.forEach(club => { %>
+          <option value="<%= club._id %>"><%= club.name %>, <%= club.type %>, $<%= club.price %></option>
+        <% }) %>
+      </select>
+      <button class="btn btn-primary" type="submit">Add club</button>
+    </form>
       <div class="club-redirect">
         <form action="/clubs">
-          <input type="submit" value="New Club">
+          <button type="submit" class="btn btn-outline-dark">New Club</button>
         </form>
       </div>  
-  <% } %>    
-  <% if (user) { %> 
-    <h2>Reviews:</h2>
-    <% bag.clubs.forEach(club => { %>
-      <% club.reviews.forEach(review => { %>
-        <li><%= club.name %>:
-        <%= review.content %> Rating: <%= review.rating %></li>
-    <% }) %>
-  <% }) %> 
-  <% } %>
+  <% } %> 
+
 </section>
 
 <%- include('../partials/footer') %>

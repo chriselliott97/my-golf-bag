@@ -10,6 +10,10 @@
         <th scope="col">Brand</th>
         <th scope="col">Type</th>
         <th scope="col">Price</th>
+        <% if (user) { %> 
+          <th scope="col">Details</th>
+          <th scope="col">Remove Club</th>
+          <% } %>  
       </tr>
     </thead>
     <tbody>
@@ -51,7 +55,7 @@
         <input type="text" name="brand" id="brand-input" placeholder="Ex: Calloway">
         <label for="type-input">Type:</label>
         <input type="text" name="type" id="type-input" placeholder="Ex: Big Bertha B21">
-        <label for="price-input">Price:</label>
+        <label for="price-input">Price ($):</label>
         <input type="number" name="price" id="price-input">
         <button type="submit" class="btn btn-primary">Add Club</button>
       </form>
