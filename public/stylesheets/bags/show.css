@@ -75,4 +75,12 @@
   #bag-cost {
     margin: 0 50px 50px 50px;
   }
+
+  #rating {
+    margin: 0 50px 50px 50px;
+  }
+
+  #reviews {
+    margin: 0 50px;
+  }
 }
