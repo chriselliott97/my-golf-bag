@@ -1,4 +1,3 @@
-
 .bag-show {
   display: flex;
   flex-direction: column;
@@ -6,4 +5,25 @@
   align-items: center;
   min-height: 100vh;
   margin: 0;
+}
+
+
+.great {
+  color: rgb(83, 170, 83);
+}
+
+.above-average {
+  color: darkgreen;
+}
+
+.average {
+  color: rgb(136, 116, 0)
+}
+
+.below-average {
+  color: rgb(178, 50, 3);
+}
+
+.bad {
+  color: darkred;
 }

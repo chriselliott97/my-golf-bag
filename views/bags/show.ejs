@@ -26,12 +26,34 @@
       $<%= total %> 
     </div>
   </div>
-    <% if (user) { %> 
+  <% if (user) { %> 
+    <div>
+      <h2>Rating:</h2>
+      <% let sum = 0 %>
+      <% bag.clubs.forEach(club => { %>
+        <%club.reviews.forEach(review => { %>
+          <% sum += review.rating %>
+        <% }) %>
+      <% }) %>
+      <% if(sum >= 60) {%> 
+        <h5 class="great">Great!</h5>
+      <% } else if(sum < 60 && sum > 36) {%>
+        <h5 class="above-average">Above Average</h5>
+      <% } else if(sum < 36 && sum > 24) {%>
+        <h5 class="average">Average</h5> 
+      <% } else if(sum < 24 && sum > 0) { %> 
+        <h5 class="below-average">Below Average</h5>
+      <% } else if(sum === 0) {%> 
+        <h5 class="bad">Bad</h5>
+      <% } %> 
+      </div>
       <h2>Reviews:</h2>
       <% bag.clubs.forEach(club => { %>
         <% club.reviews.forEach(review => { %>
-          <div class="club-name"><%= club.name %>:
-            <%= review.content %> Rating: <%= review.rating %></div>
+          <div class="club-name">
+            <%= club.name %>:
+            <%= review.content %>
+          </div>
         <% }) %>
       <% }) %> 
     <% } %>
