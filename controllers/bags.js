@@ -43,11 +43,11 @@ function show(req, res) {
   })
 }
 
-function deleteClub(req, res) {
+function deleteClubFromBag(req, res) {
   Bag.findById(req.params.id)
   .then(bag => {
-    console.log('BAG HERE', bag)
-    console.log('CLUB ID', req.params.clubId)
+    bag.clubs.remove({ _id: req.params.clubId })
+    bag.save()
     res.redirect(`/bags/${bag._id}`)
   })
 }
@@ -69,5 +69,5 @@ export {
   create,
   show,
   addToClubs,
-  deleteClub,
+  deleteClubFromBag,
 }
