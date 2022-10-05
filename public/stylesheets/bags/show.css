@@ -66,6 +66,10 @@
 .btn {
   margin: 0 10px 10px 10px;
 }
+
+#club-link {
+  color: darkolivegreen;
+}
 @media only screen and (min-width: 991px){
   #clubs-card{ 
     display: flex;

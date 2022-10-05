@@ -14,10 +14,10 @@
         <ul>
           <% bag.clubs.forEach(club => { %>
             <li class="club-show">
-              <a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %>  ||
+              <a id="club-link" href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %>  ||
               <% if (bag.owner.equals(user?.profile._id)) { %>
                 <form action="/bags/<%= bag._id %>/clubs/<%= club._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-danger">X</button>
+                <button class="btn btn-outline-danger">X</button>
                 </form>
               <% } %> 
             </li>

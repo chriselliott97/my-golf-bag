@@ -27,6 +27,7 @@ function create(req, res) {
 
 function show(req, res) {
   Club.findById(req.params.id)
+  .populate('owner')
   .then(club => {
     res.render('clubs/show', {
       club,
