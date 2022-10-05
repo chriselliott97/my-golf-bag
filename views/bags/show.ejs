@@ -8,41 +8,41 @@
     <p><%= bag.owner.name %>'s Golf Bag who has been golfing for <%= bag.year %> years</p>
   </div>
   <div class="clubs-new">
-  <div id="clubs-card">
-    <h2>Clubs:</h2>
-    <div class="club-des ">
-      <ul>
-        <% bag.clubs.forEach(club => { %>
-          <li class="club-show">
-            <a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %>  ||
-            <% if (bag.owner.equals(user?.profile._id)) { %>
-            <form action="/bags/<%= bag._id %>/clubs/<%= club._id %>?_method=DELETE" method="POST">
-              <button class="btn btn-danger">X</button>
-            </form>
-            <% } %> 
-          </li>
-        <% }) %> 
-      </ul>  
-    </div>
-  </div>
-  <div id="add-clubs">
-    <% if (bag.owner.equals(user?.profile._id)) { %>
-      <h2>Add Clubs to Bag:</h2>
-      <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
-        <select class="form-select" aria-label="Default select example" name="clubId">
-          <% clubs.forEach(club => { %>
-          <option value="<%= club._id %>"><%= club.name %>, <%= club.type %>, $<%= club.  price %></option>
-        <% }) %>
-      </select>
-      <button class="btn btn-primary" type="submit">Add club</button>
-    </form>
-      <div class="club-redirect">
-        <form action="/clubs">
-          <button type="submit" class="btn btn-outline-dark">New Club</button>
+    <div id="clubs-card">
+      <h2>Clubs:</h2>
+      <div class="club-des ">
+        <ul>
+          <% bag.clubs.forEach(club => { %>
+            <li class="club-show">
+              <a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %>  ||
+              <% if (bag.owner.equals(user?.profile._id)) { %>
+                <form action="/bags/<%= bag._id %>/clubs/<%= club._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">X</button>
+                </form>
+              <% } %> 
+            </li>
+          <% }) %> 
+        </ul>  
+      </div>
+    </div>  
+    <div id="add-clubs">
+      <% if (bag.owner.equals(user?.profile._id)) { %>
+        <h2>Add Clubs to Bag:</h2>
+        <form id="add-per-to-clubs" action="/bags/<%= bag._id %>" method="POST">
+          <select class="form-select" aria-label="Default select example" name="clubId">
+            <% clubs.forEach(club => { %>
+              <option value="<%= club._id %>"><%= club.name %>, <%= club.type %>, $<%= club.  price %></option>
+            <% }) %>
+          </select>
+        <button class="btn btn-primary" type="submit">Add club</button>
         </form>
-      </div>  
-    <% } %> 
-  </div>
+        <div class="club-redirect">
+          <form action="/clubs">
+            <button type="submit" class="btn btn-outline-dark">New Club</button>
+          </form>
+        </div>  
+      <% } %> 
+    </div>
   </div>
   <div class="extras">
     <div id="bag-cost">
