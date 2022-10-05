@@ -35,6 +35,11 @@ nav {
   margin: 0 30px;
   font-size: 30px;
 }
+
+#nav-title {
+  margin-right: 30px;
+  
+}
 main {
   display: flex;
   align-items: center;

@@ -10,16 +10,19 @@
   <div class="clubs-new">
   <div id="clubs-card">
     <h2>Clubs:</h2>
-    <div class="club-des">
-      <% bag.clubs.forEach(club => { %>
-        <li>
-          <a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %> 
-          <form action="/bags/<%= bag._id %>/clubs/<%= club._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">X</button>
-          </form>
-        </li>
+    <div class="club-des ">
+      <ul>
+        <% bag.clubs.forEach(club => { %>
+          <li class="club-show">
+            <a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %>  ||
+            <% if (bag.owner.equals(user?.profile._id)) { %>
+            <form action="/bags/<%= bag._id %>/clubs/<%= club._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger">X</button>
+            </form>
+            <% } %> 
+          </li>
         <% }) %> 
-      </td>  
+      </ul>  
     </div>
   </div>
   <div id="add-clubs">

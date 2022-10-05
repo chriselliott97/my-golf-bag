@@ -5,7 +5,7 @@
 <section>
   <h1 class="bags-title">Golf Bags</h1>
   <% if (user) { %>
-    <h2>Add a Bag!</h2>
+    <h2 class="index-title">Add a Bag!</h2>
     <form action="/bags" method="POST">
       <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Unique Bag Name</span>
@@ -20,7 +20,7 @@
       </div>  
     </form>
   <% } %>
-  <h2>All Bags</h2>
+  <h2 class="index-title">All Bags</h2>
 	<div class="list-group">
     <% bags.forEach(bag => { %>
     <a href="/bags/<%= bag._id %>" class="list-group-item list-group-item-action">

@@ -3,8 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const bagSchema = new Schema({
-  name: String,
-  year: Number,
+  name: {type: String, required: true},
+  year: {type: Number, required: true},
   clubs: [{ type: Schema.Types.ObjectId, ref: "Club" }],
   owner: { type: Schema.Types.ObjectId, ref: "Profile" }
 }, {
