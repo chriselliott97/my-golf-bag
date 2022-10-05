@@ -14,6 +14,9 @@
       <% bag.clubs.forEach(club => { %>
         <% console.log("club name ", club.name) %>
         <li><a href="/clubs/<%= club._id %>"><%= club.name %></a>, <%= club.type %>, $<%= club.price %> 
+          <form action="/bags/<%= bag._id %>/clubs/<%= club._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">X</button>
+          </form>
         </li>
         <% }) %> 
       </td>  
@@ -76,10 +79,12 @@
       <h2>Reviews:</h2>
       <% bag.clubs.forEach(club => { %>
         <% club.reviews.forEach(review => { %>
-          <div class="club-name">
-            <%= club.name %>:
-            <%= review.content %>
-          </div>
+          <div class="review-show">
+            <div class="club-name">
+              <%= club.name %>, <%= club.type %> 
+            </div>
+            : <%= review.content %>
+          </div>  
         <% }) %>
       <% }) %> 
     <% } %>

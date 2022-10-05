@@ -14,6 +14,8 @@ router.post('/', isLoggedIn, bagsCtrl.create)
 // POST /bag/:id/clubs
 router.post('/:id', bagsCtrl.addToClubs)
 
+router.delete('/:id/clubs/:clubId', bagsCtrl.deleteClub)
+
 
 export {
   router
