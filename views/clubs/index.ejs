@@ -4,6 +4,7 @@
 
 <main>
   <h1 class="clubs-title">Club List</h1>
+  <div>
   <table id="list" class="table table-success table-striped table-bordered">
     <thead>
       <tr>
@@ -14,7 +15,7 @@
         <% if (user) { %> 
           <th scope="col">Details</th>
           <th scope="col">Remove Club</th>
-          <% } %>  
+        <% } %>  
       </tr>
     </thead>
     <tbody>
@@ -35,11 +36,12 @@
                 <button class="btn btn-danger">X</button>
               </form>
             </td>
-            <% } %>
-          </tr>
-          <% }) %> 
-        </tbody>
-      </table>
+          <% } %>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+
       <% if (user) { %>
       <h1 class="clubs-title"><%= title %></h1>
       <form id="new-form" action="/clubs" method="POST">
