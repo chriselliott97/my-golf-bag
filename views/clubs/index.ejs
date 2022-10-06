@@ -3,6 +3,39 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <% if (user) { %>
+    <h1 class="clubs-title"><%= title %></h1>
+    <form id="new-form" action="/clubs" method="POST">
+      <div class="mb-3">
+        <label for="name-input">Club Type:</label>
+        <select class="form-select" aria-label="Default select example" name="name" id="name-select">
+          <option value="Driver">Driver</option>
+          <option value="Wood">Wood</option>
+          <option value="Hybrid">Hybrid</option>
+          <option value="Iron">Iron</option>
+          <option value="Wedge">Wedge</option>
+          <option value="Putter">Putter</option>
+        </select>
+      </div>
+      <div>
+        <label for="brand-input">Brand:</label>
+        <div class="input-group mb-3">
+          <input type="text" name="brand" id="brand-input" placeholder="Ex: Calloway" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        </div>  
+        <label for="type-input">Type:</label>
+        <div class="input-group mb-3">
+          <input type="text" name="type" id="type-input" placeholder="Ex: Big Bertha B21" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <label for="price-input">Price:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="number" name="price" id="price-input" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>  
+      <button type="submit" class="btn btn-primary">Add Club</button>
+    </form>
+  <% } %>
   <h1 class="clubs-title">Club List</h1>
   <div>
   <table id="list" class="table table-success table-striped table-bordered">
@@ -44,39 +77,7 @@
     </tbody>
   </table>
 
-      <% if (user) { %>
-      <h1 class="clubs-title"><%= title %></h1>
-      <form id="new-form" action="/clubs" method="POST">
-        <div class="mb-3">
-        <label for="name-input">Club Type:</label>
-        <select class="form-select" aria-label="Default select example" name="name" id="name-select">
-          <option value="Driver">Driver</option>
-          <option value="Wood">Wood</option>
-          <option value="Hybrid">Hybrid</option>
-          <option value="Iron">Iron</option>
-          <option value="Wedge">Wedge</option>
-          <option value="Putter">Putter</option>
-        </select>
-        </div>
-        <div>
-          <label for="brand-input">Brand:</label>
-          <div class="input-group mb-3">
-            <input type="text" name="brand" id="brand-input" placeholder="Ex: Calloway" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-          </div>  
-          <label for="type-input">Type:</label>
-          <div class="input-group mb-3">
-            <input type="text" name="type" id="type-input" placeholder="Ex: Big Bertha B21" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <label for="price-input">Price:</label>
-          <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input type="number" name="price" id="price-input" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-text">.00</span>
-          </div>
-        </div>  
-        <button type="submit" class="btn btn-primary">Add Club</button>
-      </form>
-      <% } %>
+      
 </main>
 
 <%- include('../partials/footer') %>

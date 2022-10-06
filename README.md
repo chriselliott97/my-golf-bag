@@ -12,6 +12,15 @@
 - Each bag will show the clubs that the user picks as well as any reviews that may be attached to each club 
 - Each bag will show a total bag cost as well as a rating of the bag which is all to help the user get a feel for clubs they may want to buy in the future
 
+### How it works:
+- Sign in with your Google account 
+- Click Bags 
+- Add a unique bag 
+- Add clubs to your desire from the dropdown 
+- If your desired club is not in the dropdown then click New club
+- Add your new club and view/review the club 
+- Navigate back to bags and add your club
+
 ### Screenshots
 ![bag index page](public/assets/Screenshot1.png)
 ![bag index page](public/assets/Screenshot2.png)

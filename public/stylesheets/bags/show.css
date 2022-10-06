@@ -45,6 +45,7 @@
 #clubs-card {
   margin: 40px;
 }
+
 #add-clubs {
   margin: 40px;
 }
@@ -52,6 +53,9 @@
 .review-show {
   display: flex;
   flex-direction: row;
+  border: 1px solid #23352c;
+  border-radius: 5ch;
+  padding: 10px;
 }
 
 .club-name {
@@ -70,6 +74,8 @@
 #club-link {
   color: darkolivegreen;
 }
+
+
 @media only screen and (min-width: 991px){
   #clubs-card{ 
     display: flex;

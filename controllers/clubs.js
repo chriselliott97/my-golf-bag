@@ -57,7 +57,7 @@ function edit(req, res) {
   .then(club => {
     res.render("clubs/edit", {
       club,
-      title: "Edit club"
+      title: "Edit Club"
     })
   })
   .catch(err => {
