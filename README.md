@@ -13,7 +13,8 @@
 - Each bag will show a total bag cost as well as a rating of the bag which is all to help the user get a feel for clubs they may want to buy in the future
 
 ### Screenshots
-
+![bag index page](public/assets/Screenshot1.png)
+![bag index page](public/assets/Screenshot2.png)
 
 
 ### Technologies used 
