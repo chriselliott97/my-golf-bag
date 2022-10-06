@@ -1,0 +1,24 @@
+.club-show-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 10%;
+  padding: 20px 15px;
+  margin-top: 30px;
+  background-color: rgb(145, 167, 107);
+}
+
+#club-att {
+  display: flex;
+  flex-direction: row;
+}
+
+h2 {
+  margin-top: 8px;
+  margin-left: 20px;
+}
+
+h1 {
+  color: #23352c;
+  font-weight: bold;
+}

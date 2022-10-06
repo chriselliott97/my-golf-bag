@@ -1,27 +1,44 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/clubs/show.css"/>
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= club.name %></h1>
-  <h2><%= club.brand %></h2>
-  <h2><%= club.type %></h2>
-  <h2>$<%= club.price %></h2>
+  <div class="club-show-card">
+    <div id="club-att">
+      <h1>Club Type:</h1>
+      <h2><%= club.name %></h2>
+    </div>
+    <div id="club-att">  
+      <h1>Brand:</h1>
+      <h2><%= club.brand %></h2>
+    </div>
+    <div id="club-att">
+      <h1>Type:</h1>
+      <h2><%= club.type %></h2>
+    </div>
+    <div id="club-att">
+      <h1>Price:</h1>
+      <h2>$<%= club.price %></h2>
+    </div>
+  </div>
   <% if (club.owner.equals(user?.profile._id)) { %>
   <a href="/clubs/<%= club._id %>/edit">
-    <button>Edit Club</button>
+    <button class="btn btn-outline-secondary">Edit Club</button>
   </a>
   <% } %>
   <section>
     <h2>Reviews</h2>
-  <form 
+    <form 
     id="add-review-form"
     action="/clubs/<%= club._id %>/reviews"
     method="POST"
-  >
-    <label for="content-textarea">Review</label>
-    <textarea name="content" id="content-textarea"></textarea>
+    >
+    <div class="input-group">
+      <span class="input-group-text">REVIEW</span>
+      <textarea name="content" id="content-textarea"></textarea>
+    </div>
     <label for="rating-select">Rating</label>
-    <select name="rating" id="rating-select">
+    <select class="form-select" aria-label="Default select example" name="rating" id="rating-select">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -33,7 +50,7 @@
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
-    <button type="submit">Add Review</button>
+    <button class="btn btn-outline-success" type="submit">Add Review</button>
   </form>
 
   <% if (club.reviews.length) { %>

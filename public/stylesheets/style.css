@@ -38,8 +38,8 @@ nav {
 
 #nav-title {
   margin-right: 30px;
-  
 }
+
 main {
   display: flex;
   align-items: center;
@@ -84,7 +84,10 @@ pre {
 }
 
 
-
+#main-index {
+  display: flex;
+  justify-content: center;
+}
 .btn {
   margin: 16px 0;
 }
@@ -108,7 +111,8 @@ pre {
 #golf-tee {
   border-radius: 30%;
   margin-top: 15px;
-  width:auto;
+  width: 75%;
+
 }
 
 #welcome-title {
@@ -118,8 +122,25 @@ pre {
   margin-top: 25px;
 }
 
+#welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
 #goal {
   color: #23352c;
   font-weight: bold;
   margin-bottom: 25px;
+}
+
+#started {
+  color: #23352c;
+  font-weight: bold;
+}
+
+#steps {
+  color: #23352c;
 }
