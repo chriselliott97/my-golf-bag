@@ -25,7 +25,8 @@
 - MongoDB
 - Mongoose
 - Bootstrap
-
+### Credits
+- Intro Photo || https://riversedgegolfbend.com/bend-oregon-golf-blog/spring-golfing-tips-in-oregon/
 
 ### Icebox
 - AAU I want to show how common a club is and whether or not it is in many bags or just the one

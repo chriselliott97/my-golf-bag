@@ -2,7 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Welcome to My Golf Bag! <%= user ? user.profile.name : "" %></h1>
+  <h1 id="welcome-title">Welcome to My Golf Bag! <%= user ? user.profile.name : "" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -13,15 +13,16 @@
   <% } %>
 
   <section class="intro">
-    <h3>Here at My Golf Bag, our goal is to help you find the right golf clubs that fit your budget and your play style.</h3>
+    <h3 id="goal">Here at My Golf Bag, our goal is to help you find the right golf clubs that fit your budget and your play style.</h3>
     <h2>To Get Started:</h2>
-    <ol>
+    <ol id="steps">
       <li>Login with your Google account</li>
       <li>Create a new bag</li>
-      <li>Browse our list of clubs from other golfers</li>
+      <li>Browse our list of clubs from other golfers or add your own</li>
       <li>Add them to your bag</li>
       <li>And have fun!</li>
     </ol>
+    <img id="golf-tee" src="https://i.imgur.com/PtNE6dq.jpg" alt="Golf Balled Tee'd Up">
   </section>
 </main>
 

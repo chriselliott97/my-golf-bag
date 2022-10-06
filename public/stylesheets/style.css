@@ -98,3 +98,28 @@ pre {
 .profile-avatar {
   margin-top: 50px;
 }
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#golf-tee {
+  border-radius: 30%;
+  margin-top: 15px;
+  width:auto;
+}
+
+#welcome-title {
+  color: #23352c;
+  font-weight: bold;
+  font-size: 60px;
+  margin-top: 25px;
+}
+
+#goal {
+  color: #23352c;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
