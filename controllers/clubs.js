@@ -15,6 +15,7 @@ function index(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile._id
   Club.create(req.body)
   .then(club => {
     res.redirect(`clubs`)

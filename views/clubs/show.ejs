@@ -6,9 +6,11 @@
   <h2><%= club.brand %></h2>
   <h2><%= club.type %></h2>
   <h2>$<%= club.price %></h2>
+  <% if (club.owner.equals(user?.profile._id)) { %>
   <a href="/clubs/<%= club._id %>/edit">
     <button>Edit Club</button>
   </a>
+  <% } %>
   <section>
     <h2>Reviews</h2>
   <form 

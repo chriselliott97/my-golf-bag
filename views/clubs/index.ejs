@@ -32,10 +32,12 @@
               </form>
             </td>
             <td>
+              <% if (club.owner.equals(user?.profile._id)) { %>
               <form action="/clubs/<%= club._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-danger">X</button>
               </form>
             </td>
+            <% } %>
           <% } %>
         </tr>
       <% }) %> 
